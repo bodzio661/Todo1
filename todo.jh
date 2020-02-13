@@ -1,0 +1,21 @@
+entity Todo {
+	id Long required,
+    description String required,
+    username String required,
+    doneDate LocalDate required,
+    isDone Boolean required
+}
+
+
+// Set pagination options
+paginate Todo with infinite-scroll
+paginate Todo with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
