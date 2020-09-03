@@ -1,0 +1,62 @@
+{
+  "name": "Faktura",
+  "fields": [
+    {
+      "fieldName": "numerFaktury",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "kwotaFaktury",
+      "fieldType": "Long",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "dataFaktury",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "typFaktury",
+      "fieldType": "Type",
+      "fieldValues": "Kosztowa,Przychodowa",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "zalegloscFaktury",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "statusFaktury",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kontrachent",
+      "otherEntityRelationshipName": "faktura",
+      "relationshipName": "kontrachent",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200903160531",
+  "entityTableName": "faktura",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

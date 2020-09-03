@@ -1,0 +1,26 @@
+{
+  "todo1App": {
+    "kontrachent": {
+      "home": {
+        "title": "Kontrachents",
+        "createLabel": "Create a new Kontrachent",
+        "createOrEditLabel": "Create or edit a Kontrachent",
+        "search": "Search for Kontrachent",
+        "notFound": "No Kontrachents found"
+      },
+      "created": "A new Kontrachent is created with identifier {{ param }}",
+      "updated": "A Kontrachent is updated with identifier {{ param }}",
+      "deleted": "A Kontrachent is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Kontrachent {{ id }}?"
+      },
+      "detail": {
+        "title": "Kontrachent"
+      },
+      "nazwaKontrachenta": "Nazwa Kontrachenta",
+      "terminKontrachenta": "Termin Kontrachenta",
+      "typKontrachenta": "Typ Kontrachenta",
+      "faktura": "Faktura"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "todo1App": {
+    "Type": {
+      "null": "",
+      "Kosztowa": "Kosztowa",
+      "Przychodowa": "Przychodowa"
+    }
+  }
+}

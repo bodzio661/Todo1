@@ -1,0 +1,35 @@
+entity Faktura {
+	numerFaktury String required,
+	kwotaFaktury Long required,
+    dataFaktury LocalDate required,
+    typFaktury Type required,
+    zalegloscFaktury Boolean,
+    statusFaktury Boolean
+}
+
+entity Kontrachent {
+	nazwaKontrachenta String,
+	terminKontrachenta Integer,
+    typKontrachenta Boolean
+}
+
+enum Type {
+    Kosztowa, Przychodowa
+}
+
+relationship OneToMany {
+	Kontrachent{faktura} to Faktura{kontrachent}
+}
+
+// Set pagination options
+paginate Faktura, Kontrachent with infinite-scroll
+paginate Faktura, Kontrachent with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

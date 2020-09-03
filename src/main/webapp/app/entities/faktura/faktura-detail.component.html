@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="faktura">
+            <h2><span jhiTranslate="todo1App.faktura.detail.title">Faktura</span> {{ faktura.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="todo1App.faktura.numerFaktury">Numer Faktury</span></dt>
+                <dd>
+                    <span>{{ faktura.numerFaktury }}</span>
+                </dd>
+                <dt><span jhiTranslate="todo1App.faktura.kwotaFaktury">Kwota Faktury</span></dt>
+                <dd>
+                    <span>{{ faktura.kwotaFaktury }}</span>
+                </dd>
+                <dt><span jhiTranslate="todo1App.faktura.dataFaktury">Data Faktury</span></dt>
+                <dd>
+                    <span>{{ faktura.dataFaktury }}</span>
+                </dd>
+                <dt><span jhiTranslate="todo1App.faktura.typFaktury">Typ Faktury</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'todo1App.Type.' + faktura.typFaktury }}">{{ faktura.typFaktury }}</span>
+                </dd>
+                <dt><span jhiTranslate="todo1App.faktura.zalegloscFaktury">Zaleglosc Faktury</span></dt>
+                <dd>
+                    <span>{{ faktura.zalegloscFaktury }}</span>
+                </dd>
+                <dt><span jhiTranslate="todo1App.faktura.statusFaktury">Status Faktury</span></dt>
+                <dd>
+                    <span>{{ faktura.statusFaktury }}</span>
+                </dd>
+                <dt><span jhiTranslate="todo1App.faktura.kontrachent">Kontrachent</span></dt>
+                <dd>
+                    <div *ngIf="faktura.kontrachent">
+                        <a [routerLink]="['/kontrachent', faktura.kontrachent?.id, 'view']">{{ faktura.kontrachent?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/faktura', faktura.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
