@@ -1,0 +1,11 @@
+id;numer_faktury;kwota_faktury;data_faktury;typ_faktury;zaleglosc_faktury;status_faktury
+1;Directives parse open-source;17140;2020-09-03;Przychodowa;false;true
+2;leverage;68998;2020-09-03;Przychodowa;false;true
+3;bus out-of-the-box;52727;2020-09-03;Przychodowa;true;false
+4;schemas efficient;375;2020-09-03;Kosztowa;false;false
+5;payment;38772;2020-09-02;Przychodowa;false;false
+6;plug-and-play turquoise Producer;87912;2020-09-03;Kosztowa;true;false
+7;Keyboard Tasty Frozen Ball;89167;2020-09-02;Kosztowa;false;false
+8;Lakes Metrics quantifying;4836;2020-09-03;Kosztowa;true;true
+9;Mississippi transmitter virtual;93672;2020-09-03;Przychodowa;false;true
+10;Accountability maximize;29394;2020-09-02;Przychodowa;true;false

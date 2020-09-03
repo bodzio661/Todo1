@@ -1,0 +1,36 @@
+{
+  "name": "Kontrachent",
+  "fields": [
+    {
+      "fieldName": "nazwaKontrachenta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "terminKontrachenta",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "typKontrachenta",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "faktura",
+      "otherEntityRelationshipName": "kontrachent",
+      "relationshipName": "faktura"
+    }
+  ],
+  "changelogDate": "20200903160631",
+  "entityTableName": "kontrachent",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

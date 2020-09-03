@@ -1,0 +1,29 @@
+{
+  "todo1App": {
+    "faktura": {
+      "home": {
+        "title": "Fakturas",
+        "createLabel": "Create a new Faktura",
+        "createOrEditLabel": "Create or edit a Faktura",
+        "search": "Search for Faktura",
+        "notFound": "No Fakturas found"
+      },
+      "created": "A new Faktura is created with identifier {{ param }}",
+      "updated": "A Faktura is updated with identifier {{ param }}",
+      "deleted": "A Faktura is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Faktura {{ id }}?"
+      },
+      "detail": {
+        "title": "Faktura"
+      },
+      "numerFaktury": "Numer Faktury",
+      "kwotaFaktury": "Kwota Faktury",
+      "dataFaktury": "Data Faktury",
+      "typFaktury": "Typ Faktury",
+      "zalegloscFaktury": "Zaleglosc Faktury",
+      "statusFaktury": "Status Faktury",
+      "kontrachent": "Kontrachent"
+    }
+  }
+}

@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-faktura-heading" jhiTranslate="todo1App.faktura.home.createOrEditLabel">Create or edit a Faktura</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="todo1App.faktura.numerFaktury" for="field_numerFaktury">Numer Faktury</label>
+                    <input type="text" class="form-control" name="numerFaktury" id="field_numerFaktury"
+                           formControlName="numerFaktury"/>
+                    <div *ngIf="editForm.get('numerFaktury')!.invalid && (editForm.get('numerFaktury')!.dirty || editForm.get('numerFaktury')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numerFaktury')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="todo1App.faktura.kwotaFaktury" for="field_kwotaFaktury">Kwota Faktury</label>
+                    <input type="number" class="form-control" name="kwotaFaktury" id="field_kwotaFaktury"
+                           formControlName="kwotaFaktury"/>
+                    <div *ngIf="editForm.get('kwotaFaktury')!.invalid && (editForm.get('kwotaFaktury')!.dirty || editForm.get('kwotaFaktury')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('kwotaFaktury')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('kwotaFaktury')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="todo1App.faktura.dataFaktury" for="field_dataFaktury">Data Faktury</label>
+                    <div class="input-group">
+                        <input id="field_dataFaktury" type="text" class="form-control" name="dataFaktury" ngbDatepicker #dataFakturyDp="ngbDatepicker" formControlName="dataFaktury"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataFakturyDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dataFaktury')!.invalid && (editForm.get('dataFaktury')!.dirty || editForm.get('dataFaktury')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dataFaktury')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="todo1App.faktura.typFaktury" for="field_typFaktury">Typ Faktury</label>
+                    <select class="form-control" name="typFaktury" formControlName="typFaktury" id="field_typFaktury">
+                        <option value="Kosztowa">{{ 'todo1App.Type.Kosztowa' | translate }}</option>
+                        <option value="Przychodowa">{{ 'todo1App.Type.Przychodowa' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('typFaktury')!.invalid && (editForm.get('typFaktury')!.dirty || editForm.get('typFaktury')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('typFaktury')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="todo1App.faktura.zalegloscFaktury" for="field_zalegloscFaktury">Zaleglosc Faktury</label>
+                    <input type="checkbox" class="form-control" name="zalegloscFaktury" id="field_zalegloscFaktury"
+                           formControlName="zalegloscFaktury"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="todo1App.faktura.statusFaktury" for="field_statusFaktury">Status Faktury</label>
+                    <input type="checkbox" class="form-control" name="statusFaktury" id="field_statusFaktury"
+                           formControlName="statusFaktury"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="todo1App.faktura.kontrachent" for="field_kontrachent">Kontrachent</label>
+                    <select class="form-control" id="field_kontrachent" name="kontrachent" formControlName="kontrachent">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="kontrachentOption.id === editForm.get('kontrachent')!.value?.id ? editForm.get('kontrachent')!.value : kontrachentOption" *ngFor="let kontrachentOption of kontrachents; trackBy: trackById">{{ kontrachentOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
